@@ -1,0 +1,338 @@
+//Q1)	Define 2 classes “First” and “Second” with member variables , member functions and constructors of  your choice. Now define a class “Two” in which define main function . In main function create various instances of First and Second  and call their individual member functions.
+class First {
+	int num1;
+	First(){
+		this.num1=20;
+	}
+	int sqr() {
+		num1=num1*num1;
+		return num1;
+	}
+	void disp() {
+		System.out.println("num1 square is "+num1);
+	}
+}
+
+class Second {
+	int num1;
+	int num2;
+	Second(int n){
+		this.num1=n;
+	}
+	void disp() {
+		num2=num1;
+		System.out.println("num 2 is "+num2);
+	}
+}
+public class Two {
+
+	public static void main(String[] args) {
+		First f=new First();
+		Second s=new Second(50);
+		f.sqr();
+		f.disp();
+		s.disp();
+	}
+
+}
+
+//Q2)	Create a class with static and non-static member variables. Define static and non-static member functions. Create instance of this class and call both static and non-static member functions.
+class MyClass{
+	static int num=50;
+	int num2=0;
+	
+	static void disp2(int n) {
+		 num=n;
+		 System.out.println("static block num "+num);
+	 }
+	
+	 void disp() {
+		this.num2=20;
+		System.out.println("non-static block num2 "+num2);
+	}
+}
+public class Q2 {
+
+	public static void main(String[] args) {
+		MyClass s=new MyClass(); 
+		s.disp();
+		MyClass.disp2(70);
+	}
+}
+
+//Q3)	Define a class “Check” in which declare member variables using  different accessibility modifiers i.e.  <default>, private ,public and protected.   Define a function “disp”  which should be public.  Define a class “CheckDemo” in which you will write “main()” function. Create an instance of  the class “Check” and  show how many  variables can be accessed directly and how many indirectly.
+ class Check{
+	int num4=40;
+	public int num1=10;
+	private  int num2=20;
+	protected int num3=30;
+	
+	public void disp() {
+		System.out.println("in disp public specifier "+num1);
+		System.out.println("in disp private specifier "+num2);
+		System.out.println("in disp protected specifier "+num3);
+		System.out.println("in disp default specifier "+num4);
+		
+	}
+}
+
+public class CheckDemo {
+
+	public static void main(String[] args) {
+		int num5;
+		Check c=new Check();
+		c.disp();
+		num5=c.num1;
+		System.out.println("public access from main num1 "+num5);
+		//num5=c.num2;
+		//System.out.println("private access from main num2 "+num5);
+		num5=c.num3;
+		System.out.println("protected from main num3 "+num5);
+		num5=c.num4;
+		System.out.println("default from main num4 "+num5);
+		
+	}
+
+}
+
+//4)	Show the example of single level inheritance with constructor invocation.
+
+class Plane4{
+	Plane4(int P){
+		int plane=P;
+		System.out.println("number of plane= "+plane);
+	}
+}
+class Airindia4 extends Plane{
+	int P ;
+	Airindia4(int A){
+		super(1);
+		P=A;
+		System.out.println("Passanger in Airindia flight is "+P);
+	}
+}
+
+public class singleInheritance {
+
+	public static void main(String[] args) {
+		
+		Airindia a=new Airindia(120); 
+	}
+}
+
+//5)	Show the example of multi-level inheritance with constructor invocation.
+class Plane1{
+	Plane1(int P){
+		int plane=P;
+		System.out.println("number of plane= "+plane);
+	}
+}
+class Airindia1 extends Plane{
+	int P ;
+	Airindia1(int A){
+		super(1);
+		P=A;
+		System.out.println("Passanger in Airindia flight is "+P);
+	}
+}
+class Crew extends Airindia1{
+	Crew(int B) {
+		super(120);
+		int C=B;
+		System.out.println("Crew members in Airindia flight is "+C);
+	}
+}
+
+public class multilevel {
+
+	public static void main(String[] args) {
+		
+		Crew a=new Crew(10); 
+	}
+}
+
+//6)	Show the example of hierarchical inheritance with constructor invocation.
+
+class Plane2{
+	Plane2(int P){
+		int plane=P;
+		System.out.println("number of plane= "+plane);
+	}
+}
+class Airindia2 extends Plane2{
+	int P ;
+	Airindia2(int A){
+		super(201);
+		P=A;
+		System.out.println("Passanger in Airindia flight is "+P);
+	}
+}
+class Crew1 extends Plane2{
+	Crew1(int B) {
+		super(101);
+		int C=B;
+		System.out.println("Crew members in Airindia flight is "+C);
+	}
+}
+
+public class Hierarchical {
+
+	public static void main(String[] args) {
+		
+		Crew1 a=new Crew1(10); 
+		Airindia2 b=new Airindia2(160);
+	}
+}
+ 
+//7)	Define a parent and a child class . Now explain function overriding with Example.
+class Parent{
+	
+	void display() {
+		System.out.println("In main function ");
+	}
+}
+
+class Child extends Parent{
+	void display() {
+		System.out.println("In child class function");
+	}
+}
+public class FunctionOverriding {
+
+	public static void main(String[] args) {
+		Child c=new Child();
+		c.display();
+	}
+
+}
+
+//8)	Define a parent class with one function. Define child class with the function having same name as of parent class function, but having different argument.
+//Create an instance of child class and call the functions. Make sure u have followed the concept of “function overloading “ in inheritance.
+
+class Parent1{
+	
+	void display() {
+		System.out.println("In main function ");
+	}
+}
+
+class Child1 extends Parent1{
+	void display(int k) {
+		System.out.println("In child class function");
+	}
+}
+public class Function_overloading{
+
+	public static void main(String[] args) {
+		Child1 c=new Child1();
+		c.display(5);
+	}
+
+}
+
+//9)	Define a class “Shape” with “draw()” function . Now derive  classes like “Circle”, “Polygon”,”Rectangle” etc. from “Shape” and override “draw()” function. Define a class “ShapeDemo” in which  write  main()  function. In the main function create a reference to Shape class referring to any of the sub class. Using this reference, call “draw()” and check the result.
+
+import java.util.Scanner;
+interface Vehicle{
+      abstract void start();   
+}
+class TwoWheeler implements Vehicle{
+	TwoWheeler()
+	{
+		System.out.println("in TwoWheeler Constructor");
+	}
+	public void start()
+	{
+		System.out.println("start 2 wheeler");
+	}
+}
+class ThreeWheeler implements Vehicle{
+	ThreeWheeler()
+	{
+		System.out.println("in ThreeWheeler Constructor");
+	}
+	public void start()
+	{
+		System.out.println("start 3 wheeler");
+	}
+}
+
+class FourWheeler implements Vehicle{
+	FourWheeler()
+	{
+		System.out.println("in FourWheeler Constructor");
+	}
+	public void start()
+	{
+		System.out.println("start 4 wheeler");
+	}
+
+}
+ class Main{
+	 static void perform(Vehicle vehicle)
+	 {
+		 vehicle.start();
+	 }
+
+	public static void main(String[] args) {
+		perform(new TwoWheeler());
+		perform(new ThreeWheeler());
+		perform(new FourWheeler());
+		
+	}
+}
+
+//10)	Define an interface “Vechicle” with “start()” function . Now derive  classes like “TwoWheeler”, “ThreeWheeler”,”FourWheeler” etc. from “Vehicle” and override “start()” function. Define a class “VDemo” in which  write  main()  function. In the main function create a reference to Vehicle  class referring to any of the sub class. Using this reference, call “start" method.
+
+import java.util.Scanner;
+interface Vehicle{
+      abstract void start();   
+}
+class TwoWheeler implements Vehicle{
+	TwoWheeler()
+	{
+		System.out.println("in TwoWheeler Constructor");
+	}
+	public void start()
+	{
+		System.out.println("start 2 wheeler");
+	}
+}
+class ThreeWheeler implements Vehicle{
+	ThreeWheeler()
+	{
+		System.out.println("in ThreeWheeler Constructor");
+	}
+	public void start()
+	{
+		System.out.println("start 3 wheeler");
+	}
+}
+
+class FourWheeler implements Vehicle{
+	FourWheeler()
+	{
+		System.out.println("in FourWheeler Constructor");
+	}
+	public void start()
+	{
+		System.out.println("start 4 wheeler");
+	}
+
+}
+ class Main{
+	public static void main(String[] args) {
+		Vehicle arr[]= new Vehicle[3];
+		arr[0]=new TwoWheeler();
+		arr[1]=new ThreeWheeler();
+		arr[2]=new FourWheeler();
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			arr[i].start();
+		}
+		
+		
+	}
+}
+
