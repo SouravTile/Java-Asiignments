@@ -1,44 +1,5 @@
 //Advanced_multithreading_assignment
 //Sourav_Tile_DAC_090
-/*
- 3) create a multi-threaded application by using 
- Thread pool and ReentrantLock (explicit locking).
- create 2 threads. each thread should display 
- characters from A to J. [ make sure while one 
- thread executes ,
-  other thread should not interfere ]
-
- */
-
-import java.util.concurrent.*;
-import java.util.concurrent.locks.*;
-
-public class myapk implements Runnable{
-	static ReentrantLock myapk=new ReentrantLock();
-		void disp() {
-			myapk.lock();
-			char c=65;
-			for(int i=0;i<10;i++) {
-				System.out.println(c+" "+Thread.currentThread());
-				c++;
-			}
-			myapk.unlock();
-		}
-		public void run() {
-			disp();
-		}
-
-	public static void main(String[] args) {
-		ExecutorService exe=Executors.newFixedThreadPool(2);
-		myapk m=new myapk();
-		exe.execute(m);
-		exe.execute(m);
-		exe.shutdown();
-		}
-}	
-
-
-//-----------------------------------------------------------
 //1) create a multi-threaded application by using Thread pool.create 2 threads. each thread should display characters from A to J. [ make sure while one thread executes , other thread should not interfere ]
 
 import java.util.concurrent.*;
@@ -62,54 +23,10 @@ public class myapp1 {
 		app a=new app();	
 		exe.execute(a);
 		exe.execute(a);
-		exe.shutdown();		
+		exe.shutdown();	
 	}
 }
-
 //------------------------------------------------------
-/*
- 4) create a multi-threaded application by using Thread pool and ReentrantLock.create 2 threads. each thread should display numbers from 1 to 10. [ make sure while one thread executes , other thread should not interfere ]
-Also when first thread displays nos. from 1 to 5 it should released the lock and allow other thread to display nos. from 1 to 5 and then previous thread will display nos. from 6 to 10 and so on.
- */
-
-import java.util.concurrent.*;
-import java.util.concurrent.locks.*;
-
-public class myapk implements Runnable{
-	static ReentrantLock myapk=new ReentrantLock();
-	static Condition con=myapk.newCondition();
-		void disp() {
-			myapk.lock();
-			
-			for(int i=1;i<=10;i++) {
-			
-				if(i==6) {
-				try {
-					con.await();
-				}
-				catch(InterruptedException e) {		
-				}
-				}
-				System.out.println(i+" "+Thread.currentThread());
-				con.signalAll();
-			}
-			myapk.unlock();
-		}
-		public void run() {
-			disp();
-		}
-
-	public static void main(String[] args) {
-		ExecutorService exe=Executors.newFixedThreadPool(2);
-			myapk m=new myapk();
-			exe.execute(m);
-			exe.execute(m);
-			exe.shutdown();
-		}
-}
-
-//--------------------------------------------------------------
-
 //2) create a multi-threaded application by using Thread pool.create 2 threads. each thread should display numbers from 1 to 10. [ make sure while one thread executes , other thread should not interfere ]
 //Also when first thread displays nos. from 1 to 5 it should released the lock and allow other thread to display nos. from 1 to 5 and then previous thread will display nos. from 6 to 10 and so on.
 
@@ -166,6 +83,7 @@ class app implements Runnable
 	}
 }
 public class myapp1 {
+
 	public static void main(String[] args) {
 		ExecutorService exe=Executors.newFixedThreadPool(3);
 		app a=new app();	
@@ -174,4 +92,84 @@ public class myapp1 {
 		exe.execute(a);
 		exe.shutdown();
 	}
+}
+
+/*
+ 4) create a multi-threaded application by using 
+ Thread pool and ReentrantLock (explicit locking).
+ create 2 threads. each thread should display 
+ characters from A to J. [ make sure while one 
+ thread executes ,
+  other thread should not interfere ]
+
+ */
+
+import java.util.concurrent.*;
+import java.util.concurrent.locks.*;
+
+public class myapk implements Runnable{
+	static ReentrantLock myapk=new ReentrantLock();
+		void disp() {
+			myapk.lock();
+			char c=65;
+			for(int i=0;i<10;i++) {
+				System.out.println(c+" "+Thread.currentThread());
+				c++;
+			}
+			myapk.unlock();
+		}
+		public void run() {
+			disp();
+		}
+
+	public static void main(String[] args) {
+		ExecutorService exe=Executors.newFixedThreadPool(2);
+		myapk m=new myapk();
+		exe.execute(m);
+		exe.execute(m);
+		exe.shutdown();
+		}
+}	
+
+
+//-----------------------------------------------------------
+/*
+ 5) create a multi-threaded application by using Thread pool and ReentrantLock.create 2 threads. each thread should display numbers from 1 to 10. [ make sure while one thread executes , other thread should not interfere ]
+Also when first thread displays nos. from 1 to 5 it should released the lock and allow other thread to display nos. from 1 to 5 and then previous thread will display nos. from 6 to 10 and so on.
+ */
+
+import java.util.concurrent.*;
+import java.util.concurrent.locks.*;
+
+public class myapk implements Runnable{
+	static ReentrantLock myapk=new ReentrantLock();
+	static Condition con=myapk.newCondition();
+		void disp() {
+			myapk.lock();
+			
+			for(int i=1;i<=10;i++) {
+			
+				if(i==6) {
+				try {
+					con.await();
+				}
+				catch(InterruptedException e) {		
+				}
+				}
+				System.out.println(i+" "+Thread.currentThread());
+				con.signalAll();
+			}
+			myapk.unlock();
+		}
+		public void run() {
+			disp();
+		}
+
+	public static void main(String[] args) {
+		ExecutorService exe=Executors.newFixedThreadPool(2);
+			myapk m=new myapk();
+			exe.execute(m);
+			exe.execute(m);
+			exe.shutdown();
+		}
 }
