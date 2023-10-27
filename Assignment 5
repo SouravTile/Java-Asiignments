@@ -1,0 +1,257 @@
+//Sourav_Tile_090
+//Assignment 5
+//Q.1
+package Day5;
+class A{
+A(int a){
+System.out.println(&quot;Paramterized Constructor A having parameter &quot;+a);
+}
+}
+class B extends A{
+B(){
+super(20);
+System.out.println(&quot;Constructor of B&quot;);
+}
+}
+class C extends B{
+C(){
+System.out.println(&quot;Constructor of C&quot;);
+}
+}
+public class Q1 {
+public static void main(String[] args) {
+C c = new C();
+}
+}
+
+//Q.2
+package Day5;
+class Vehicle {
+public void start() {
+System.out.println(&quot;Start Vehicle&quot;);
+}
+}
+class FourWheeler extends Vehicle{
+
+public void start() {
+super.start();
+System.out.println(&quot;Start Four Wheeler&quot;);
+}
+}
+
+//Q.3
+package Day5;
+class base{
+base(){
+System.out.println(&quot;Default constructor of base&quot;);
+}
+}
+class sub1 extends base{
+sub1(){
+System.out.println(&quot;Default constructor of sub1&quot;);
+}
+}
+class sub2 extends base{
+sub2(){
+System.out.println(&quot;Default constructor of sub2&quot;);
+}
+}
+public class Q3 {
+public static void main(String[] args) {
+sub1 s1 = new sub1();
+sub2 s2 = new sub2();
+}
+}
+public class Q2 {
+public static void main(String[] args) {
+FourWheeler f = new FourWheeler();
+f.start();
+}
+}
+
+//Q.4
+package Day5;
+class Top1{
+void disp1() {
+}
+}
+class Bottom1 extends Top1{
+void disp1() {
+System.out.println(&quot;Display Bottom1&quot;);
+}
+}
+class Bottom2 extends Top1{
+void disp1() {
+System.out.println(&quot;Display Bottom2&quot;);
+}
+}
+class Bottom3 extends Top1{
+void disp1() {
+System.out.println(&quot;Display Bottom3&quot;);
+}
+}
+public class Q4 {
+public static void main(String[] args) {
+Bottom1 b1 = new Bottom1();
+b1.disp1();
+Bottom2 b2 = new Bottom2();
+b2.disp1();
+Bottom3 b3 = new Bottom3();
+b3.disp1();
+}
+}
+
+//Q.5
+package Day5;
+abstract class Shape{
+abstract void draw();
+}
+
+class Triangle extends Shape{
+void draw() {
+System.out.println(&quot;Draw Triangle&quot;);
+}
+}
+class Polygon extends Shape{
+void draw() {
+System.out.println(&quot;Draw Polygon&quot;);
+}
+}
+class Circle extends Shape{
+void draw() {
+System.out.println(&quot;Draw Circle&quot;);
+}
+}
+public class Q5 {
+public static void main(String[] args) {
+Shape arr[] = new Shape[3];
+arr[0] = new Triangle();
+arr[1] = new Polygon();
+arr[2] = new Circle();
+for(int i = 0; i&lt;arr.length; i++) {
+arr[i].draw();
+}
+}
+}
+
+//Q.6
+package Day5;
+interface A{
+abstract void disp1();
+}
+interface B extends A{
+abstract void disp2();
+}
+
+class C implements B{
+public void disp1() {
+System.out.println(&quot;Display 1 of C&quot;);
+}
+public void disp2() {
+System.out.println(&quot;Display 2 of C&quot;);
+}
+}
+public class Q6 {
+public static void main(String[] args) {
+C c = new C();
+c.disp1();
+c.disp2();
+}
+}
+
+//Q.7
+package Day5;
+class Parent1{
+void disp1() {
+}
+void disp2() {
+}
+}
+interface Parent2{
+abstract void disp3();
+abstract void disp4();
+}
+class Child extends Parent1 implements Parent2{
+void disp1() {
+System.out.println(&quot;Display 1&quot;);
+}
+void disp2() {
+System.out.println(&quot;Display 2&quot;);
+}
+
+public void disp3() {
+System.out.println(&quot;Display 3&quot;);
+}
+public void disp4() {
+System.out.println(&quot;Display 4&quot;);
+}
+}
+public class Q7 {
+public static void main(String[] args) {
+Child c = new Child();
+c.disp1();
+c.disp2();
+c.disp3();
+c.disp4();
+}
+}
+
+//Q.8
+package Day5;
+class base1{
+base1(int a){
+System.out.println(&quot;1 parameter of base class &quot; + a);
+}
+}
+class sub1 extends base1{
+sub1(){
+this(10);
+System.out.println(&quot;Default Constructor&quot;);
+}
+sub1(int a){
+this(10, 20);
+System.out.println(&quot;1 Parameter &quot;+a);
+}
+sub1(int b, int c){
+super(30);
+System.out.println(&quot;2 Parameters &quot;+b+&quot; &quot;+c);
+}
+}
+public class Q8 {
+
+public static void main(String[] args) {
+sub1 s1 = new sub1();
+}
+}
+
+
+//Q.9
+package Day5;
+interface Game{
+abstract void play();
+}
+class Cricket implements Game{
+public void play() {
+System.out.println(&quot;Play Cricket&quot;);
+}
+}
+class Football implements Game{
+public void play() {
+System.out.println(&quot;Play Football&quot;);
+}
+}
+class Tennis implements Game{
+public void play() {
+System.out.println(&quot;Play Tennis&quot;);
+}
+}
+public class Demo {
+static void perform(Game g) {
+g.play();
+}
+public static void main(String[] args) {
+perform(new Cricket());
+perform(new Football());
+perform(new Tennis());
+}
+}
