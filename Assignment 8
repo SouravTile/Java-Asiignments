@@ -1,0 +1,198 @@
+//Sourav_Tile_090_DAC_AssignmentD8
+//1)
+public class MyArithException extends Exception {
+	public MyArithException(String mess) {
+		super(mess);
+	}
+
+}
+
+public class Calculator {
+	public int caldouble(int num)throws MyArithException{
+		if(num==0)
+			
+				throw new MyArithException("Zero not allowed");
+		else if(num<0)
+			
+			throw new MyArithException("negative not allowed");	
+		return num*2;	
+	}
+}
+
+import java.util.Scanner;
+
+public class MyCalcApp {
+	public static void main(String[] args) {
+		Calculator b = new Calculator();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter num");
+		int num =sc.nextInt();
+		int res =0;
+		try {
+			res = b.caldouble(num);
+		}
+		catch(MyArithException m) {
+			System.out.println(m);	
+		}
+		System.out.println(res);	
+	}	
+}
+
+//2)
+//Developer
+public class Dev {
+	public class NumberNotDivisibleBySevenException extends Exception {
+		public NumberNotDivisibleBySevenException(String mess) {
+			super(mess);
+		}
+}
+}
+
+Client
+public class Mymath {
+	public int disp(int num)throws MyArithException{
+		if(num%7!=0)
+		throw new MyArithException("number not divisible by 7");
+		else	
+		return num;
+	}
+}
+
+
+import java.util.Scanner;	
+	public	class Demo{
+		public static void main(String[] args) {
+			Mymath m = new Mymath();
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter num");
+			int num =sc.nextInt();
+			int res =0;
+			try {
+				res = m.disp(num);
+			} catch (MyArithException e) {	
+				System.out.println(e);
+			}
+			System.out.println(res);	
+		}
+	}
+
+
+//3)
+public class MyException extends Exception {
+		public MyException(String mess) {
+			super(mess);
+		}
+	}
+
+class Demo{
+	public void show1() {
+		try {
+			show2();
+		} catch (MyException e) {
+			
+			System.out.println(e);
+		}
+	}
+public void show2() throws MyException {
+		show3();
+	}
+public void show3() throws MyException {
+	Scanner sc = new Scanner(System.in);
+	System.out.println("Enter num");
+	int num = sc.nextInt();
+	if(num>10)
+	{
+		throw new MyException(null); // compilation error : add throws or try_catch
+	}
+	else {
+		System.out.println(num);
+	}
+}
+public static void main(String[] args) throws MyException {
+	Demo d = new Demo();
+	d.show3();
+}
+}
+
+
+//4)
+//Developer
+	public class InvalidLengthException extends Exception {
+		public InvalidLengthException(String mess) {
+			super(mess);
+		}
+	}
+
+Client Side
+public class Authenticator {
+	
+Authenticator(String s) throws InvalidLengthException{
+	
+	if(s.length()<5 || s.length()>9)
+		throw new InvalidLengthException("Invalid length");
+}
+void done() {
+	System.out.println("successful authentication");
+}
+}
+
+class Demo{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter pass");
+		String password = sc.next();
+		
+		try {
+			Authenticator a = new Authenticator(password);
+			a.done();
+		} catch (InvalidLengthException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e);
+		}
+}
+}
+
+//5)
+//Devloper Side
+public class ResourceNotAllocatedException extends Exception {
+		public ResourceNotAllocatedException(String mess) {
+			super(mess);
+		}
+	}
+
+public class MyResource implements AutoCloseable
+{
+	public MyResource(int capacity) throws ResourceNotAllocatedException
+	{
+		if(capacity>100)
+		{
+			throw new ResourceNotAllocatedException("not sufficient space");
+		}
+	}
+    void disp()
+    {
+    	System.out.println("successful");
+    }
+	@Override
+	public void close()  {
+		System.out.println("resource is closed");
+		
+	}
+}
+
+//Client Side
+class Demo{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter capacity");
+		int capacity = sc.nextInt();
+		MyResource m;
+		try {
+			m = new MyResource(capacity);
+			m.disp();
+		} catch (ResourceNotAllocatedException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e);
+		}	
+	}
+}
