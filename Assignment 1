@@ -1,0 +1,117 @@
+//1) accept two numbers and add them.
+
+package Assignment;
+import java.util.*;
+public class First
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a number: ");
+		int a =sc.nextInt();
+		System.out.println("Enter another number: ");
+		int b =sc.nextInt();
+		int c= a+b;
+		System.out.println("The sum is: "+c);
+		
+	}
+}
+
+//2) accept two numbers and subtract them.
+package Assignment;
+import java.util.*;
+public class First
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a number: ");
+		int a =sc.nextInt();
+		System.out.println("Enter another number: ");
+		int b =sc.nextInt();
+		int c= a+b;
+		System.out.println("The sum is: "+c);
+		
+	}
+}
+
+
+//3) accept two numbers and multiply them.
+package Assignment;
+import java.util.*;
+public class First
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a number: ");
+		int a =sc.nextInt();
+		System.out.println("Enter another number: ");
+		int b =sc.nextInt();
+		int c= a*b;
+		System.out.println("The sum is: "+c);
+		
+	}
+}
+
+//4) accept two numbers and devide them.
+package Assignment;
+import java.util.*;
+public class First
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a number: ");
+		int a =sc.nextInt();
+		System.out.println("Enter another number: ");
+		int b =sc.nextInt();
+		int c= a/b;
+		System.out.println("The sum is: "+c);
+		
+	}
+}
+
+//5) accept two numbers and check whether first number is greater or second number is greater or they are equal.
+package Assignment;
+import java.util.*;
+public class First
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a number: ");
+		int a =sc.nextInt();
+		System.out.println("Enter another number: ");
+		int b =sc.nextInt();
+		
+		if(a==b){
+			System.out.println(a+" and "+b" are equal");
+		}
+		else if(a>b){
+			System.out.println(a+" is greater than "+b);
+		}else{
+			System.out.println(b+" is greater than "+a);
+		}
+		
+	}
+}
+
+//6) accept a number and check whether it is divisible by 3 or not.
+package Assignment;
+import java.util.*;
+public class First
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a number: ");
+		int a =sc.nextInt();
+		if(a%3==0){
+			System.out.println(a+" is divisible by 3.");
+		}
+		else{
+			System.out.println(a+" is not divisible by 3.");
+		}
+	}
+}
