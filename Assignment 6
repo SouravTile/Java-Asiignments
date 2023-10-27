@@ -1,0 +1,155 @@
+//Sourav_Tile_090_assignment6
+//Assignment day 6
+//Q.Inheritance 1
+package day6;
+interface MouseHandler
+{
+void mouseClicked();
+void mousePressed();
+void mouseReleased();
+}
+interface WindowHandler
+{
+void windowClosing();
+void windowClosed();
+}
+class WindowGUIApp implements MouseHandler,WindowHandler
+{
+public void mouseClicked() {
+System.out.println(&quot;mouseClicked&quot;);
+}
+public void mousePressed() {
+System.out.println(&quot;mousePressed&quot;);
+}
+public void mouseReleased() {
+System.out.println(&quot;mouseReleased&quot;);
+}
+public void windowClosing() {
+System.out.println(&quot;windowClosing&quot;);
+}
+public void windowClosed() {
+System.out.println(&quot;windowClosed&quot;);
+}
+}
+public class GUIDemo
+{
+public static void main(String args[])
+{
+WindowGUIApp w=new WindowGUIApp();
+w.mouseClicked();
+w.mousePressed();
+w.mouseReleased();
+w.windowClosing();
+w.windowClosed();
+}
+}
+
+//Q.Inheritance 2
+//Devloper Code:
+package devloperpack;
+public interface Shape {
+public void draw();
+}
+package devpack;
+public class Circle implements Shape {
+public void draw() {
+System.out.println(&quot;Circle Draw&quot;);
+}
+}
+package devloperpack;
+public class Rect implements Shape{
+public void draw() {
+System.out.println(&quot;Rectanlge Draw&quot;);
+}
+}
+
+package devloperpack;
+public class Triangle implements Shape{
+public void draw() {
+System.out.println(&quot;Triangle Draw&quot;);
+}
+}
+
+//Client Code:
+package clientpack;
+import devloperpack.*;
+
+public class ShapeDemo {
+public static void main(String[] args) {
+Shape arr[]=new Shape[3];
+arr[0]=new Circle();
+arr[1]=new Rect();
+arr[2]=new Triangle();
+for (int i=0;i&lt;arr.length;i++) {
+arr[i].draw();
+}
+}
+}
+
+//Q.Inheritance 2
+//Devloper Code:
+package devpack;
+public interface PersistenceMechanism {
+public void writeData(String ref);
+public String readData();
+}
+//Client Code:
+package ClientPack;
+import devloperpack.*;
+public class FileSystem implements PersistenceMechanism{
+String s;
+public void writeData(String ref)
+{
+this.s=ref;
+}
+public String readData()
+{
+return s;
+}
+}
+
+package ClientPack;
+import devloperpack.*;
+public class DatabaseSystem implements PersistenceMechanism {
+String s;
+public void writeData(String ref)
+{
+this.s=ref;
+}
+public String readData()
+{
+return s;
+}
+}
+
+package ClientPack;
+import devloperpack.*;
+public class BigdataSystem implements PersistenceMechanism{
+String s;
+public void writeData(String ref)
+{
+this.s=ref;
+}
+public String readData()
+{
+return s;
+}
+}
+
+package ClientPack;
+import devloperpack.*;
+public class Demo {
+public static void main(String[] args) {
+PersistenceMechanism arr[]=new PersistenceMechanism[3];
+arr[0]=new FileSystem();
+arr[1]=new DatabaseSystem();
+arr[2]=new BigdataSystem();
+
+for(int i=0;i&lt;arr.length;i++) {
+if(arr[i] instanceof BigdataSystem) {
+arr[i].writeData(&quot;reading data from Bigdata&quot;);
+System.out.print(arr[i].readData());
+}
+}
+}
+}
