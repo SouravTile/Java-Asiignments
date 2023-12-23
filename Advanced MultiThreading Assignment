@@ -64,7 +64,7 @@ public class myapk implements Runnable{
 		}
 }
 
-//-------------------------------------------------------------------
+
 //3) create 3 threads in such a way that while one thread is executing, 2 threads cannot interfere. they should display output "Exec  0" to "Exec 5".
 
 import java.util.concurrent.*;
