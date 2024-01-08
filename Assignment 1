@@ -1,5 +1,4 @@
 //1) accept two numbers and add them.
-
 package Assignment;
 import java.util.*;
 public class First
