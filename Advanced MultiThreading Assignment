@@ -30,7 +30,6 @@ public class myapp1 {
 
 import java.util.concurrent.*;
 import java.util.concurrent.locks.*;
-
 public class myapk implements Runnable{
 	
 		synchronized void disp() {
