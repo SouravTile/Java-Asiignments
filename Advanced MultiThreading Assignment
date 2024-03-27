@@ -45,8 +45,7 @@ public class myapk implements Runnable{
 				}
 				System.out.println(i+" "+Thread.currentThread());
 				notifyAll();
-			}
-			
+			}	
 		}
 		public void run() {
 			disp();
