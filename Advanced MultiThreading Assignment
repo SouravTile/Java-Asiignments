@@ -1,6 +1,5 @@
 //Advanced_multithreading_assignment
 //1] create a multi-threaded application by using Thread pool.create 2 threads. each thread should display characters from A to J. [ make sure while one thread executes , other thread should not interfere ]
-
 import java.util.concurrent.*;
 class app implements Runnable
 {
