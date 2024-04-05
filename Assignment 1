@@ -31,6 +31,7 @@ public class First
 		System.out.println("The sum is: "+c);
 	}
 }
+
 //3) accept two numbers and multiply them.
 package Assignment;
 import java.util.*;
