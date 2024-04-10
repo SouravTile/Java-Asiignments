@@ -23,6 +23,7 @@ public class Myclass {
 	}
 }
 
+
 package client1;
 import pack2.Myclass; 
 public class clientapp {
