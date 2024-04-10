@@ -32,7 +32,6 @@ public class clientapp {
 		Myclass m1 = new Myclass();
 		
 		// TODO Auto-generated method stub
-
 	}
 
 }
