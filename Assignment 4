@@ -184,7 +184,7 @@ public class Hierarchical {
 	}
 }
  
-//7)	Define a parent and a child class . Now explain function overriding with Example.
+//7)Define a parent and a child class . Now explain function overriding with Example.
 class Parent{
 	
 	void display() {
