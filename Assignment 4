@@ -120,7 +120,7 @@ public class singleInheritance {
 	}
 }
 
-//5)	Show the example of multi-level inheritance with constructor invocation.
+//5)Show the example of multi-level inheritance with constructor invocation.
 class Plane1{
 	Plane1(int P){
 		int plane=P;
