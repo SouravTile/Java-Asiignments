@@ -95,7 +95,7 @@ public class CheckDemo {
 
 }
 
-//4)	Show the example of single level inheritance with constructor invocation.
+//4)Show the example of single level inheritance with constructor invocation.
 
 class Plane4{
 	Plane4(int P){
