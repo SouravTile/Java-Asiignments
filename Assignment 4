@@ -36,7 +36,7 @@ public class Two {
 
 }
 
-//Q2)	Create a class with static and non-static member variables. Define static and non-static member functions. Create instance of this class and call both static and non-static member functions.
+//Q2)Create a class with static and non-static member variables. Define static and non-static member functions. Create instance of this class and call both static and non-static member functions.
 class MyClass{
 	static int num=50;
 	int num2=0;
