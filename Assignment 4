@@ -151,7 +151,7 @@ public class multilevel {
 	}
 }
 
-//6)	Show the example of hierarchical inheritance with constructor invocation.
+//6)Show the example of hierarchical inheritance with constructor invocation.
 
 class Plane2{
 	Plane2(int P){
