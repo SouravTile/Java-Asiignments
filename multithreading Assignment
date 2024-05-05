@@ -17,7 +17,6 @@ class app implements Runnable
 	}
 }
 public class myapp1 {
-
 	public static void main(String[] args) {
 		ExecutorService exe=Executors.newFixedThreadPool(2);
 		app a=new app();	
