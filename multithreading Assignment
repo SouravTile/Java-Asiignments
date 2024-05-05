@@ -116,7 +116,6 @@ public class myapp1 {
 }
 
 //-----------------------------------------------------------------------
-
 /*
 5) create 2 threads
 	one thread will display 1 to 50
