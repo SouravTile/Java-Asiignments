@@ -84,7 +84,6 @@ class myapk implements Runnable{
 }
 
 //------------------------------------------------------------
-
 //4)create 2 threads. Write a program which displays number 1 to 10 using class lock. 
 //[hint:- use "implements Runnable" and synchronized block]
 
