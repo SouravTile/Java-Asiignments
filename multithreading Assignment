@@ -28,7 +28,7 @@ public class myapp1 {
 }
 
 //-------------------------------------------------------
-//2) above program  using "implements Runnable" method.
+//2) above program using "implements Runnable" method.
 
 public class myapk implements Runnable{
 	public void run()
